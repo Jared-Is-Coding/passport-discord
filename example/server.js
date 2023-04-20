@@ -1,8 +1,8 @@
-var express  = require('express')
-  , session  = require('express-session')
-  , passport = require('passport')
-  , Strategy = require('../lib').Strategy
-  , app      = express();
+const express  = require('express')
+    , session  = require('express-session')
+    , passport = require('passport')
+    , Strategy = require('../lib').Strategy
+    , app      = express();
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -11,8 +11,8 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-var scopes = ['identify', 'email', /* 'connections', (it is currently broken) */ 'guilds', 'guilds.join'];
-var prompt = 'consent'
+const scopes = ['identify', 'email', 'connections', 'guilds', 'guilds.join'];
+const prompt = 'consent'
 
 passport.use(new Strategy({
     clientID: '',
